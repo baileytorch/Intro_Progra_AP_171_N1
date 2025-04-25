@@ -18,13 +18,16 @@ def definir_impuesto(sueldo):
     elif sueldo_int >= 6056460 and sueldo_int < 8075280:
         impuesto = ((sueldo_int * 15.57)/100)
     elif sueldo_int >= 4710580 and sueldo_int < 6056460:
-        pass
+        impuesto = ((sueldo_int * 10.62)/100)
+    elif sueldo_int >= 3364700 and sueldo_int < 4710580:
+        impuesto = ((sueldo_int * 7.09)/100)
+    elif sueldo_int >= 2018820 and sueldo_int < 3364700:
+        impuesto = ((sueldo_int * 4.52)/100)
+    elif sueldo_int >= 908469 and sueldo_int < 2018820:
+        impuesto = ((sueldo_int * 2.2)/100)
     else:
         impuesto = 0
     print(f"El impuesto de segunda categoría a pagar con el sueldo de {sueldo_int} es: ${impuesto}")
 
 sueldo_ingresado = input("Ingrese su sueldo: ")
 definir_impuesto(sueldo_ingresado)
-
-
-print()
