@@ -2,4 +2,10 @@
 modulos/__pycache__/operaciones.cpython-313.pyc
 =======
 funciones/__pycache__/funciones.cpython-313.pyc
+<<<<<<< HEAD
 >>>>>>> 86549831882aef1f1e1ed8d782b57f36176f63e3
+=======
+inventario/version/__pycache__/version.cpython-313.pyc
+funciones/__pycache__/operaciones.cpython-311.pyc
+funciones/__pycache__/operaciones.cpython-313.pyc
+>>>>>>> 4e1e4695995f926e54797cb801de818b78e84ca3

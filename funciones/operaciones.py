@@ -9,7 +9,6 @@ def op_multiplicacion(a,b):
 
 def op_division(a,b):
     if b == 0:
-        print("El divisor de una división no puede ser 0.")
         return None
     else:
         return a / b
