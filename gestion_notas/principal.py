@@ -1,4 +1,5 @@
-asignaturas = ['Biología','Química','Física']
+import os
+from data.asignaturas import asignaturas
 
 def obtener_listado_asignaturas():    
     print()
@@ -21,6 +22,14 @@ def guardar_nueva_asignatura():
     obtener_listado_asignaturas()
     nueva_asignatura = input('Ingrese nueva asignatura: ')
     asignaturas.append(nueva_asignatura.title())
+    
+    file = 'asignaturas.py'
+    location = os.path.join('gestion_notas/data', file)
+    location = os.path.abspath(location)
+    location = os.path.realpath(location)    
+    archivo = open(f"{location}", "w+")
+    archivo.write(f'asignaturas = {asignaturas}')
+    archivo.close()    
     obtener_listado_asignaturas()
 
 guardar_nueva_asignatura()
