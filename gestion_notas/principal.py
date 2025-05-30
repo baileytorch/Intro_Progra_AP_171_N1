@@ -1,35 +1,49 @@
-import os
-from data.asignaturas import asignaturas
+from negocio.negocio_asignaturas import obtener_listado_asignaturas,guardar_nueva_asignatura
 
-def obtener_listado_asignaturas():    
+def menu_principal():
     print()
-    print('Listado de Asignaturas')
-    print('======================')
-    contador = 0
-    for asignatura in sorted(asignaturas):
-        contador += 1
-        print(f'[{contador}] {asignatura}')
+    print("Sistema Gestión Notas")
+    print("=====================")
+    print("[1] Gestión de Asignaturas")
+    print("[0] Salir")
+    print()
 
-def obtener_asignatura_individual():
-    asignatura_encontrada = 'asignatura NO encontrada'
-    busqueda = input("Ingrese asignatura a buscar: ")
-    for asignatura in asignaturas:
-        if busqueda.lower() in asignatura.lower():
-            asignatura_encontrada = asignatura
-    return asignatura_encontrada
+def sub_menu_asignaturas():
+    print()
+    print("Gestión Asignaturas")
+    print("===================")
+    print("[1] Listado de Asignaturas")
+    print("[2] Agregar Asignatura")
+    print("[3] Modificar Asignatura")
+    print("[4] Eliminar Asignatura")
+    print("[0] Volver al menú principal")
+    print()
 
-def guardar_nueva_asignatura():
-    obtener_listado_asignaturas()
-    nueva_asignatura = input('Ingrese nueva asignatura: ')
-    asignaturas.append(nueva_asignatura.title())
-    
-    file = 'asignaturas.py'
-    location = os.path.join('gestion_notas/data', file)
-    location = os.path.abspath(location)
-    location = os.path.realpath(location)    
-    archivo = open(f"{location}", "w+")
-    archivo.write(f'asignaturas = {asignaturas}')
-    archivo.close()    
-    obtener_listado_asignaturas()
+def ejecucion_principal():
+    while True:
+        menu_principal()
+        opcion_menu = input("Seleccione su Opción [0-1]: ")
+        
+        if opcion_menu == "1":
+            sub_menu_asignaturas()
+            opcion_submenu_asignaturas = input("Seleccione su Opción [0-4]: ")
+            
+            if opcion_submenu_asignaturas == "1":
+                obtener_listado_asignaturas()
+            elif opcion_submenu_asignaturas == "2":
+                guardar_nueva_asignatura()
+            elif opcion_submenu_asignaturas == "3":
+                pass
+            elif opcion_submenu_asignaturas == "4":
+                pass
+            elif opcion_submenu_asignaturas == "0":
+                pass
+            else:
+                print("Opción Inválida, vuelva a ingresar...")
+                return
+        elif opcion_menu == "0":
+            break
+        else:
+            print("Opción Inválida, vuelva a ingresar...")
 
-guardar_nueva_asignatura()
+ejecucion_principal()
