@@ -1,6 +1,8 @@
 import os
 from data.asignaturas import asignaturas
+from data.crear_data import guardar_data
 
+# READ DATA
 def obtener_listado_asignaturas():    
     print()
     print('Listado de Asignaturas')
@@ -10,6 +12,7 @@ def obtener_listado_asignaturas():
         contador += 1
         print(f'[{contador}] {asignatura}')
 
+# READ DATA
 def obtener_asignatura_individual():
     asignatura_encontrada = 'asignatura NO encontrada'
     busqueda = input("Ingrese asignatura a buscar: ")
@@ -18,16 +21,17 @@ def obtener_asignatura_individual():
             asignatura_encontrada = asignatura
     return asignatura_encontrada
 
+# CREATE DATA
 def guardar_nueva_asignatura():
     obtener_listado_asignaturas()
     nueva_asignatura = input('Ingrese nueva asignatura: ')
     asignaturas.append(nueva_asignatura.title())
+    guardar_data('asignaturas',asignaturas,'asignaturas.py')
     
-    archivo_datos = 'asignaturas.py'
-    ubicacion_archivo = os.path.join('gestion_notas/data', archivo_datos)
-    ubicacion_archivo = os.path.abspath(ubicacion_archivo)
-    ubicacion_archivo = os.path.realpath(ubicacion_archivo)    
-    archivo = open(f"{ubicacion_archivo}", "w+")
-    archivo.write(f'asignaturas = {asignaturas}')
-    archivo.close()    
-    obtener_listado_asignaturas()
+# UPDATE DATA
+def actualizar_asignatura():
+    pass
+
+# DELETE DATA
+def eliminar_asignatura():
+    pass
