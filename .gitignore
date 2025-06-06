@@ -13,3 +13,7 @@ gestion_notas/data/__pycache__/asignaturas.cpython-313.pyc
 gestion_notas/data/__pycache__/asignaturas.cpython-313.pyc
 gestion_notas/negocio/__pycache__/negocio_asignaturas.cpython-313.pyc
 gestion_notas/data/__pycache__/asignaturas.cpython-313.pyc
+gestion_notas/data/__pycache__/crear_data.cpython-313.pyc
+gestion_notas/data/__pycache__/docentes.cpython-313.pyc
+gestion_notas/data/__pycache__/leer_data.cpython-313.pyc
+gestion_notas/negocio/__pycache__/negocio_docentes.cpython-313.pyc

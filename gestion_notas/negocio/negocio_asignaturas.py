@@ -1,16 +1,13 @@
-import os
-from data.asignaturas import asignaturas
 from data.crear_data import guardar_data
+from data.leer_data import listado_data
+from data.asignaturas import asignaturas
 
 # READ DATA
 def obtener_listado_asignaturas():    
     print()
     print('Listado de Asignaturas')
     print('======================')
-    contador = 0
-    for asignatura in sorted(asignaturas):
-        contador += 1
-        print(f'[{contador}] {asignatura}')
+    listado_data('asignaturas.py')
 
 # READ DATA
 def obtener_asignatura_individual():
@@ -30,7 +27,16 @@ def guardar_nueva_asignatura():
     
 # UPDATE DATA
 def actualizar_asignatura():
-    pass
+    obtener_listado_asignaturas()
+    busqueda = input("Ingrese asignatura a buscar: ")
+    indice_asignatura = 0
+    for i in range(len(asignaturas)):
+        if busqueda.lower() in asignaturas[i].lower():
+            asignatura_modificada = input("Ingrese nuevo nombre de asignatura: ")
+            indice_asignatura = i
+            break
+    asignaturas[indice_asignatura] = asignatura_modificada
+    guardar_data('asignaturas',asignaturas,'asignaturas.py')
 
 # DELETE DATA
 def eliminar_asignatura():
