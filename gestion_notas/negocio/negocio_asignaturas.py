@@ -7,7 +7,11 @@ def obtener_listado_asignaturas():
     print()
     print('Listado de Asignaturas')
     print('======================')
-    listado_data('asignaturas.py')
+    lista = listado_data('asignaturas.py')
+    contador = 0
+    for data in sorted(lista):
+        contador += 1
+        print(f'[{contador}] {data}')
 
 # READ DATA
 def obtener_asignatura_individual():
@@ -35,7 +39,7 @@ def actualizar_asignatura():
             asignatura_modificada = input("Ingrese nuevo nombre de asignatura: ")
             indice_asignatura = i
             break
-    asignaturas[indice_asignatura] = asignatura_modificada
+    # asignaturas[indice_asignatura] = asignatura_modificada
     guardar_data('asignaturas',asignaturas,'asignaturas.py')
 
 # DELETE DATA
