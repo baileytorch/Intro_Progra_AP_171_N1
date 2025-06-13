@@ -9,7 +9,7 @@ def listado_data(nombre_archivo):
         lista = docentes
     return lista
 
-def obtener_id_data(nombre_archivo,busqueda):
+def obtener_indice_data(nombre_archivo,busqueda):
     lista = []
     if nombre_archivo == 'asignaturas.py':
         lista = asignaturas

@@ -7,7 +7,11 @@ def obtener_listado_docentes():
     print()
     print('Listado de Docentes')
     print('===================')
-    listado_data('docentes.py')
+    lista = listado_data('docentes.py')
+    contador = 0
+    for data in sorted(lista):
+        contador += 1
+        print(f'[{contador}] {data}')
 
 # CREATE DATA
 def guardar_nuevo_docente():

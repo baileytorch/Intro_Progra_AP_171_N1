@@ -1,4 +1,4 @@
-from negocio.negocio_asignaturas import obtener_listado_asignaturas,guardar_nueva_asignatura,actualizar_asignatura
+from negocio.negocio_asignaturas import obtener_listado_asignaturas,guardar_nueva_asignatura,actualizar_asignatura,eliminar_asignatura
 from negocio.negocio_docentes import obtener_listado_docentes, guardar_nuevo_docente
 
 def menu_principal():
@@ -48,7 +48,7 @@ def ejecucion_principal():
             elif opcion_submenu_asignaturas == "3":
                 actualizar_asignatura()
             elif opcion_submenu_asignaturas == "4":
-                pass
+                eliminar_asignatura()
             elif opcion_submenu_asignaturas == "0":
                 pass
             else:

@@ -1,5 +1,5 @@
 from data.crear_data import guardar_data
-from data.leer_data import listado_data,obtener_id_data
+from data.leer_data import listado_data,obtener_indice_data
 from data.asignaturas import asignaturas
 
 # READ DATA
@@ -14,13 +14,13 @@ def obtener_listado_asignaturas():
         print(f'[{contador}] {data}')
 
 # READ DATA
-def obtener_asignatura_individual():
-    asignatura_encontrada = 'asignatura NO encontrada'
-    busqueda = input("Ingrese asignatura a buscar: ")
-    for asignatura in asignaturas:
-        if busqueda.lower() in asignatura.lower():
-            asignatura_encontrada = asignatura
-    return asignatura_encontrada
+# def busca_asignatura():
+#     asignatura_encontrada = 'asignatura NO encontrada'
+#     busqueda = input("Ingrese asignatura a buscar: ")
+#     for asignatura in asignaturas:
+#         if busqueda.lower() in asignatura.lower():
+#             asignatura_encontrada = asignatura
+#     return asignatura_encontrada
 
 # CREATE DATA
 def guardar_nueva_asignatura():
@@ -33,7 +33,7 @@ def guardar_nueva_asignatura():
 def actualizar_asignatura():
     obtener_listado_asignaturas()
     busqueda = input("Ingrese asignatura a buscar: ")
-    indice_asignatura = obtener_id_data('asignaturas.py', busqueda)
+    indice_asignatura = obtener_indice_data('asignaturas.py', busqueda)
 
     if indice_asignatura is not None:
         asignatura_modificada = input("Ingrese nuevo nombre de asignatura: ")
@@ -44,4 +44,12 @@ def actualizar_asignatura():
 
 # DELETE DATA
 def eliminar_asignatura():
-    pass
+    obtener_listado_asignaturas()
+    busqueda = input("Ingrese asignatura a buscar: ")
+    indice_asignatura = obtener_indice_data('asignaturas.py', busqueda)
+
+    if indice_asignatura is not None:
+        asignaturas.pop(indice_asignatura)
+        guardar_data('asignaturas',asignaturas,'asignaturas.py')
+    else:
+        print('Asignatura NO encontrada')
