@@ -1,5 +1,5 @@
 from negocio.negocio_asignaturas import obtener_listado_asignaturas,guardar_nueva_asignatura,actualizar_asignatura,eliminar_asignatura
-from negocio.negocio_docentes import obtener_listado_docentes, guardar_nuevo_docente
+from negocio.negocio_docentes import obtener_listado_docentes, guardar_nuevo_docente,actualizar_docente,eliminar_docente
 
 def menu_principal():
     print()
@@ -63,9 +63,9 @@ def ejecucion_principal():
             elif opcion_submenu_docentes == "2":
                 guardar_nuevo_docente()
             elif opcion_submenu_docentes == "3":
-                pass
+                actualizar_docente()
             elif opcion_submenu_docentes == "4":
-                pass
+                eliminar_docente()
             elif opcion_submenu_docentes == "0":
                 pass
             else:

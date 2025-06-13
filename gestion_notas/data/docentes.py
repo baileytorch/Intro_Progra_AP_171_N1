@@ -1,1 +1,1 @@
-docentes = ['Erick Bailey', 'Aquiles Baeza']
+docentes = ['Aquiles Bailo', 'Wendy Sulca']
