@@ -8,17 +8,21 @@ def obtener_listado_docentes():
     print('Listado de Docentes')
     print('===================')
     lista = listado_data('docentes.py')
-    contador = 0
-    for data in sorted(lista):
-        contador += 1
-        print(f'[{contador}] {data}')
+    if len(lista) > 0:
+        contador = 0
+        for data in sorted(lista):
+            contador += 1
+            print(f'[{contador}] {data}')
+    else:
+        print('No se han encontrado datos.')
 
 # CREATE DATA
 def guardar_nuevo_docente():
     obtener_listado_docentes()
     nuevo_docente = input('Ingrese nuevo docente: ')
     docentes.append(nuevo_docente.title())
-    guardar_data('docentes',docentes,'docentes.py')
+    mensaje = guardar_data('docentes',docentes,'docentes.py')
+    print(f'{mensaje} de docente {nuevo_docente}')    
 
 # UPDATE DATA
 def actualizar_docente():
@@ -29,7 +33,8 @@ def actualizar_docente():
     if indice_docente is not None:
         docente_modificado = input("Ingrese nuevo nombre de asignatura: ")
         docentes[indice_docente] = docente_modificado.title()
-        guardar_data('docentes',docentes,'docentes.py')
+        mensaje = guardar_data('docentes',docentes,'docentes.py')
+        print(f'{mensaje} de docente {docente_modificado}')
     else:
         print('Docente NO encontrado')
 
@@ -40,7 +45,9 @@ def eliminar_docente():
     indice_docente = obtener_indice_data('docentes.py', busqueda)
 
     if indice_docente is not None:
+        docente = docentes[indice_docente]
         docentes.pop(indice_docente)
-        guardar_data('docentes',docentes,'docentes.py')
+        mensaje = guardar_data('docentes',docentes,'docentes.py')
+        print(f'{mensaje}, docente {docente} eliminado.')
     else:
         print('Docente NO encontrado')

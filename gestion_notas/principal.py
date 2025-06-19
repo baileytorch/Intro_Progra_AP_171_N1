@@ -50,10 +50,11 @@ def ejecucion_principal():
             elif opcion_submenu_asignaturas == "4":
                 eliminar_asignatura()
             elif opcion_submenu_asignaturas == "0":
-                pass
+                return
             else:
                 print("Opción Inválida, vuelva a ingresar...")
                 return
+            
         elif opcion_menu == "2":
             sub_menu_docentes()
             opcion_submenu_docentes = input("Seleccione su Opción [0-4]: ")
@@ -67,10 +68,11 @@ def ejecucion_principal():
             elif opcion_submenu_docentes == "4":
                 eliminar_docente()
             elif opcion_submenu_docentes == "0":
-                pass
+                return
             else:
                 print("Opción Inválida, vuelva a ingresar...")
                 return
+            
         elif opcion_menu == "0":
             break
         else:

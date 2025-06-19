@@ -8,10 +8,13 @@ def obtener_listado_asignaturas():
     print('Listado de Asignaturas')
     print('======================')
     lista = listado_data('asignaturas.py')
-    contador = 0
-    for data in sorted(lista):
-        contador += 1
-        print(f'[{contador}] {data}')
+    if len(lista) > 0:
+        contador = 0
+        for data in sorted(lista):
+            contador += 1
+            print(f'[{contador}] {data}')
+    else:
+        print('No se han encontrado datos.')
 
 # READ DATA
 # def busca_asignatura():
@@ -27,7 +30,8 @@ def guardar_nueva_asignatura():
     obtener_listado_asignaturas()
     nueva_asignatura = input('Ingrese nueva asignatura: ')
     asignaturas.append(nueva_asignatura.title())
-    guardar_data('asignaturas',asignaturas,'asignaturas.py')
+    mensaje = guardar_data('asignaturas',asignaturas,'asignaturas.py')
+    print(f'{mensaje} de asignatura {nueva_asignatura}')
     
 # UPDATE DATA
 def actualizar_asignatura():
@@ -38,7 +42,8 @@ def actualizar_asignatura():
     if indice_asignatura is not None:
         asignatura_modificada = input("Ingrese nuevo nombre de asignatura: ")
         asignaturas[indice_asignatura] = asignatura_modificada.title()
-        guardar_data('asignaturas',asignaturas,'asignaturas.py')
+        mensaje = guardar_data('asignaturas',asignaturas,'asignaturas.py')
+        print(f'{mensaje} de asignatura {asignatura_modificada}')
     else:
         print('Asignatura NO encontrada')
 
@@ -49,7 +54,9 @@ def eliminar_asignatura():
     indice_asignatura = obtener_indice_data('asignaturas.py', busqueda)
 
     if indice_asignatura is not None:
+        asignatura = asignaturas[indice_asignatura]
         asignaturas.pop(indice_asignatura)
-        guardar_data('asignaturas',asignaturas,'asignaturas.py')
+        mensaje = guardar_data('asignaturas',asignaturas,'asignaturas.py')
+        print(f'{mensaje}, asignatura {asignatura} eliminada.')
     else:
         print('Asignatura NO encontrada')
