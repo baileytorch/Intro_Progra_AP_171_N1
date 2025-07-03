@@ -1,6 +1,7 @@
 from negocio.negocio_asignaturas import obtener_listado_asignaturas,guardar_nueva_asignatura,actualizar_asignatura,eliminar_asignatura
 from negocio.negocio_docentes import obtener_listado_docentes, guardar_nuevo_docente,actualizar_docente,eliminar_docente
 from auxiliares.version import version_actual
+from data.conexion import conectar_db
 
 def menu_principal():
     print()
@@ -8,6 +9,7 @@ def menu_principal():
     print("==============================")
     print("[1] Gestión de Asignaturas")
     print("[2] Gestión de Docentes")
+    print("[3] Conectar a DB")
     print("[0] Salir")
     print()
 
@@ -73,6 +75,8 @@ def ejecucion_principal():
             else:
                 print("Opción Inválida, vuelva a ingresar...")
                 return
+        elif opcion_menu == "3":
+            conectar_db()
             
         elif opcion_menu == "0":
             break

@@ -1,13 +1,17 @@
 while True:
     try:
-        numerador = int(input('Ingrese el numerador: '))
-        denominador = int(input('Ingrese el denominador: '))
+        numerador = float(input('Ingrese el numerador: '))
+        denominador = float(input('Ingrese el denominador: '))
 
         division = numerador/denominador
         print(f'{numerador}/{denominador}= {division}')
 
         respuesta = input('Desea continuar Si, No...')
-        if respuesta.lower() == 'no':
+        if respuesta.lower() == 'no' or respuesta.lower() == 'n':
             break
-    except:
+    except ValueError:
         print('Numero no corresponde a entero...')
+    except ZeroDivisionError:
+        print('No se puede dividir por 0')
+    except:
+        print('No se puede realizar la operación')
