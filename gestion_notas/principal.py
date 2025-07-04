@@ -2,79 +2,63 @@ from negocio.negocio_asignaturas import obtener_listado_asignaturas,guardar_nuev
 from negocio.negocio_docentes import obtener_listado_docentes, guardar_nuevo_docente,actualizar_docente,eliminar_docente
 from auxiliares.version import version_actual
 from data.conexion import conectar_db
+from prettytable import PrettyTable
 
-def menu_principal():
+def  cargar_menu(tipo_menu):
     print()
     print(f"Sistema Gestión Notas v.{version_actual}")
     print("==============================")
-    consulta = '''
+    consulta = f'''
         SELECT numero_opcion,opcion_menu FROM opciones_menu
-        WHERE tipo_menu = 1
+        WHERE tipo_menu = {tipo_menu}
     '''
-    print()
-
-def sub_menu_asignaturas():
-    print()
-    print("Gestión Asignaturas")
-    print("===================")
-    print("[1] Listado de Asignaturas")
-    print("[2] Agregar Asignatura")
-    print("[3] Modificar Asignatura")
-    print("[4] Eliminar Asignatura")
-    print("[0] Volver al menú principal")
-    print()
-
-def sub_menu_docentes():
-    print()
-    print("Gestión Docentes")
-    print("================")
-    print("[1] Listado de Docentes")
-    print("[2] Agregar Docente")
-    print("[3] Modificar Docente")
-    print("[4] Eliminar Docente")
-    print("[0] Volver al menú principal")
-    print()
+    resultado = conectar_db(consulta)
+    tabla_menu = PrettyTable()
+    tabla_menu.field_names = ['N°','Opción']
+    contador = 0
+    if resultado != None:
+        for asignatura in resultado:
+            contador+=1
+            tabla_menu.add_row(asignatura) # type: ignore
+    print(tabla_menu)
+    opcion_menu = input(f"Seleccione su Opción [0-{contador-1}]: ")
+    return opcion_menu
 
 def ejecucion_principal():
-    while True:
-        menu_principal()
-        opcion_menu = input("Seleccione su Opción [0-1]: ")
+    while True:        
+        opcion_menu =  cargar_menu(1)
         
         if opcion_menu == "1":
-            sub_menu_asignaturas()
-            opcion_submenu_asignaturas = input("Seleccione su Opción [0-4]: ")
-            
-            if opcion_submenu_asignaturas == "1":
-                obtener_listado_asignaturas()
-            elif opcion_submenu_asignaturas == "2":
-                guardar_nueva_asignatura()
-            elif opcion_submenu_asignaturas == "3":
-                actualizar_asignatura()
-            elif opcion_submenu_asignaturas == "4":
-                eliminar_asignatura()
-            elif opcion_submenu_asignaturas == "0":
-                return
-            else:
-                print("Opción Inválida, vuelva a ingresar...")
-                return
+            while True:        
+                opcion_submenu = cargar_menu(2)                
+                if opcion_submenu == "1":
+                    obtener_listado_asignaturas()
+                elif opcion_submenu == "2":
+                    guardar_nueva_asignatura()
+                elif opcion_submenu == "3":
+                    actualizar_asignatura()
+                elif opcion_submenu == "4":
+                    eliminar_asignatura()
+                elif opcion_submenu == "0":
+                    break
+                else:
+                    print("Opción Inválida, vuelva a ingresar...")
             
         elif opcion_menu == "2":
-            sub_menu_docentes()
-            opcion_submenu_docentes = input("Seleccione su Opción [0-4]: ")
-
-            if opcion_submenu_docentes == "1":
-                obtener_listado_docentes()
-            elif opcion_submenu_docentes == "2":
-                guardar_nuevo_docente()
-            elif opcion_submenu_docentes == "3":
-                actualizar_docente()
-            elif opcion_submenu_docentes == "4":
-                eliminar_docente()
-            elif opcion_submenu_docentes == "0":
-                return
-            else:
-                print("Opción Inválida, vuelva a ingresar...")
-                return
+            while True:          
+                opcion_submenu = cargar_menu(3)
+                if opcion_submenu == "1":
+                    obtener_listado_docentes()
+                elif opcion_submenu == "2":
+                    guardar_nuevo_docente()
+                elif opcion_submenu == "3":
+                    actualizar_docente()
+                elif opcion_submenu == "4":
+                    eliminar_docente()
+                elif opcion_submenu == "0":
+                    break
+                else:
+                    print("Opción Inválida, vuelva a ingresar...")
             
         elif opcion_menu == "0":
             break
