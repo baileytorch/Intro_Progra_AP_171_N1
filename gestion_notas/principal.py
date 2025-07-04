@@ -7,10 +7,10 @@ def menu_principal():
     print()
     print(f"Sistema Gestión Notas v.{version_actual}")
     print("==============================")
-    print("[1] Gestión de Asignaturas")
-    print("[2] Gestión de Docentes")
-    print("[3] Conectar a DB")
-    print("[0] Salir")
+    consulta = '''
+        SELECT numero_opcion,opcion_menu FROM opciones_menu
+        WHERE tipo_menu = 1
+    '''
     print()
 
 def sub_menu_asignaturas():
@@ -75,8 +75,6 @@ def ejecucion_principal():
             else:
                 print("Opción Inválida, vuelva a ingresar...")
                 return
-        elif opcion_menu == "3":
-            conectar_db()
             
         elif opcion_menu == "0":
             break

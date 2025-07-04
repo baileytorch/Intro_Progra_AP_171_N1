@@ -2,7 +2,7 @@ import mysql.connector
 from mysql.connector import errorcode
 from auxiliares.data_conexion import servidor,puerto,usuario,base_datos,contrasena
 
-def conectar_db():
+def conectar_db(consulta):
     try:
         conexion = mysql.connector.connect(
             host = servidor,
@@ -15,9 +15,9 @@ def conectar_db():
         if conexion  and conexion.is_connected():
             cursor = conexion.cursor()
 
-            cursor.execute('SELECT * FROM asignaturas')
+            cursor.execute(consulta)
             resultado = cursor.fetchall()
-            print(resultado)
+            return resultado
         else:
             print('No se ha podido establecer conexión con la base de datos')
     except mysql.connector.Error as error_conexion:
