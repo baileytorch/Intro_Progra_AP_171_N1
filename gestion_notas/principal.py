@@ -1,7 +1,7 @@
 from negocio.negocio_asignaturas import obtener_listado_asignaturas, guardar_nueva_asignatura, actualizar_asignatura, eliminar_asignatura
 from negocio.negocio_docentes import obtener_listado_docentes, guardar_nuevo_docente, actualizar_docente, eliminar_docente
 from auxiliares.version import version_actual
-from data.conexion import conectar_db
+from data.conexion import leer_datos
 import auxiliares.mensajes_sistema as mensajes
 from prettytable import PrettyTable
 
@@ -14,7 +14,7 @@ def cargar_menu(tipo_menu, titulo_menu):
         SELECT numero_opcion,opcion_menu FROM opciones_menu
         WHERE tipo_menu = {tipo_menu}
     '''
-    resultado = conectar_db(consulta)
+    resultado = leer_datos(consulta)
     tabla_menu = PrettyTable()
     tabla_menu.field_names = ['N°', f'{titulo_menu}']
     contador = 0
