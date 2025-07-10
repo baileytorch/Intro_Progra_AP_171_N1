@@ -20,3 +20,4 @@ gestion_notas/negocio/__pycache__/negocio_docentes.cpython-313.pyc
 gestion_notas/auxiliares/__pycache__/version.cpython-313.pyc
 gestion_notas/auxiliares/__pycache__/data_conexion.cpython-313.pyc
 gestion_notas/data/__pycache__/conexion.cpython-313.pyc
+gestion_notas/auxiliares/__pycache__/mensajes_sistema.cpython-313.pyc
