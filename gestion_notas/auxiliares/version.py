@@ -11,6 +11,7 @@
 
 # HISTORIAL
 # 19.06.2025    Se define versión inicial del sistema Gestión de Notas v1.0.0
-# 10.07.2025    Cambair títulos en menus v1.0.1
+# 10.07.2025    Cambiar títulos en menus v1.0.1
+# 11.07.2023    Cambio en gestión de datos, desde archivos a DB V2.0.1
 
-version_actual = "1.0.1"
+version_actual = "2.0.1"
