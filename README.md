@@ -1,8 +1,8 @@
-# AP-173-N1
+# AP-171-N1
 
 <h1>Clases de introducción a la programación</1>
 
-<h3>Sección AP-173-N1</h3>
+<h3>Sección AP-171-N1</h3>
 
 <ul>
 <li>Versión de MysqlConnector para Python 3.11
